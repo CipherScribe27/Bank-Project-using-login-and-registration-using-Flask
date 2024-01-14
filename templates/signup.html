@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="static/register-style.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Welcome to Register page</h2>
+        <form action="/register" method="POST">
+            {{ form.hidden_tag() }} <!-- This is a required hidden field for CSRF protection -->
+            
+            <div class="form-group">
+                {{ form.name(size=50, class="form-control", placeholder="Name") }} <br>
+            </div>
+            
+            <div class="form-group">
+                {{ form.username(size=20, class="form-control", placeholder="Username") }} <br>
+            </div>
+            
+            <div class="form-group">
+                {{ form.email(size=50, class="form-control", placeholder="Email") }} <br>
+            </div>
+            
+            <div class="form-group">
+                {{ form.phone_number(size=15, class="form-control", placeholder="Phone Number") }} <br>
+            </div>
+            
+            <div class="form-group">
+                {{ form.password(size=20, class="form-control", placeholder="Create Password") }} <br>
+            </div>
+            
+            <div class="form-group">
+                {{ form.confirm_password(size=20, class="form-control", placeholder="Confirm Password") }} <br>
+            </div>
+            
+            <div class="button-group">
+                {{ form.submit(class="btn btn-primary") }} <br> <br>
+                <input type="reset" value="RESET" class="btn btn-primary">
+            </div>
+        </form>
+        
+        <a href="{{ url_for('login') }}" class="btn btn-dark">Already have an Account? Login here</a> <br>
+    </div>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="static/register-style.css"> 
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Welcome to Register page</h2>
+        <form action = "" Target = "_blank" method="POST">
+            {{ form.hidden_tag() }} <!-- This is a required hidden field for CSRF protection 
+            <div class="form-group">
+                {{ form.username(size=20, class="form-control") }} <br>
+            </div>
+            <div class="form-group">
+                {{ form.password(size=20, class="form-control") }} <br>
+            </div>
+            <div class="button-group">
+                {{ form.submit(class="btn btn-primary") }} <br> <br>
+                <input type = "reset" value = "RESET" class="btn btn-primary">
+            </div>
+        </form>
+        <a href = "{{url_for('login')}}" class = "btn btn-dark"> Already have an Account? Login here </a> <br>
+    </div>
+</body>
+</html>
+-->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNUP PAGE</title>
+</head>
+<body>
+    <h1> This is register page </h1>
+
+    
+    <form action = "" Target = "_self" method = "POST">
+        {{ form.hidden_tag() }} <br>
+        {{ form.username }} <br> <br>
+        {{ form.password }} <br> <br>
+        {{ form.submit }} <br> <br>
+        <input type = "reset" value = "RESET">
+    </form>
+
+    <a href = "{{url_for('login')}}"> Already have an Account? Login here </a> <br>
+</body>
+</html>
+-->

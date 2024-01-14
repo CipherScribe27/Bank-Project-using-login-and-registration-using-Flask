@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(45deg, #3498db, #2ecc71);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input {
+            font-size: 16px;
+            color: #555;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #2185d0;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #d9534f;
+        }
+
+        h2 {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deposit</h1>
+        <form method="post" action="{{ url_for('deposit') }}">
+            <div class="form-group">
+                <label for="account_number">Account Number:</label>
+                <input type="text" class="form-control" name="account_number" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" class="form-control" name="amount" required>
+                <a href="/withdraw" class="btn btn-outline-primary">Withdraw</a>
+                <a href="/ministatement" class="btn btn-outline-info">Mini_Statement</a>
+
+            </div>
+            <button type="submit" class="btn btn-outline-success">Deposit</button>
+            
+            
+        </form>
+
+        {% if message %}
+            <p style="color:red">{{ message }}</p>
+            <h2>Current Balance: {{current_balance}}</h2>
+        {% endif %}
+    
+        {% if message1 %}
+            <p style="color:red">{{ message1 }}</p>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

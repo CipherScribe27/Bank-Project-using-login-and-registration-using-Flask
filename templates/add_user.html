@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #36D1DC, #5B86E5, #5B59E5, #E559FF, #36D1DC);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 25% 50%;
+            }
+            50% {
+                background-position: 50% 50%;
+            }
+            75% {
+                background-position: 75% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #218838;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #28a745;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="container">
+        <h1>Add User</h1>
+        <form method="post" action="{{ url_for('add_user') }}">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="account_number">Account Number:</label>
+                <input type="text" class="form-control" name="account_number" required>
+            </div>
+            <div class="form-group">
+                <label for="current_balance">Current Balance:</label>
+                <input type="number" class="form-control" name="current_balance" required>
+            </div>
+            <input type="submit" class="btn btn-outline-info" value = "Create Account">
+        </form>
+        <p>{{ message }}</p>
+        <a href="/deposit" class="btn btn-outline-success">Deposit</a>
+        <a href="/withdraw" class="btn btn-outline-success">Withdraw</a>
+    </div>
+</center>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

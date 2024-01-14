@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: rgb(6, 6, 112);
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #9cd4f7;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover {
+    color: red;
+}
+/* Select the buttons inside the form element */
+form button {
+    /* Add some padding and border */
+    padding: 5px;
+    border: 1px solid black;
+}
+
+/* Select the first button (update) */
+form button:first-child {
+    /* Set the background color to green */
+    background-color: rgb(244, 75, 60);
+}
+
+/* Select the second button (delete) */
+form button:nth-child(2) {
+    /* Set the background color to red */
+    background-color: rgb(56, 234, 136);
+}

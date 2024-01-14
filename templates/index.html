@@ -1,0 +1,213 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Dashboard</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #36D1DC, #5B86E5, #5B59E5, #E559FF, #36D1DC);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 25% 50%;
+            }
+
+            50% {
+                background-position: 50% 50%;
+            }
+
+            75% {
+                background-position: 75% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .dashboard {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .welcome-animation {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-logout,
+        .btn-new-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard welcome-animation">
+        <h1>Welcome to Your Todo List Dashboard</h1>
+
+        <form action="{{ url_for('logout') }}">
+        <button type="submit" name="logout_button">Logout</button>
+        </form>
+     
+          <button class="btn btn-success btn-new-list">Create a New List</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Application</title>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #36D1DC, #5B86E5, #5B59E5, #E559FF, #36D1DC);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 25% 50%;
+            }
+
+            50% {
+                background-position: 50% 50%;
+            }
+
+            75% {
+                background-position: 75% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .dashboard {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .welcome-animation {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-logout,
+        .btn-new-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard welcome-animation">
+        <h1>Welcome to Bank Application</h1>
+
+        <form action="{{ url_for('logout') }}" method = "post">
+            <button type="submit" class="btn btn-primary btn-logout">Logout</button>
+        </form>
+
+       <!--<button class="btn btn-success btn-new-list">Create Your New Account Here</button>-->
+        <button class="btn btn-success btn-new-list">
+            <a href="{{ url_for('add_user') }}" style="color: white; text-decoration: none;">
+                Create Your New Account Here
+            </a>
+        </button>
+        
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+The `flask_sqlalchemy` library provides a Flask extension for working with SQLAlchemy, which is a popular Object-Relational Mapping (ORM) library in Python. 
+When using `flask_sqlalchemy`, you typically import the `SQLAlchemy` class, but there are other elements you might use or configure in conjunction with this 
+extension. Here's an overview:
+
+1. **`SQLAlchemy` class:**
+   - This is the main class provided by `flask_sqlalchemy`. You create an instance of this class to interact with your Flask application.
+
+   ```python
+   from flask_sqlalchemy import SQLAlchemy
+
+   db = SQLAlchemy()
+   ```
+
+2. **`Model` class:**
+   - Inherit from this class when defining your database models. It provides a set of methods and attributes to interact with your database tables.
+
+   ```python
+   from flask_sqlalchemy import Model
+
+   class User(db.Model):
+       # Your model definition here
+   ```
+
+3. **`Column` class:**
+   - Used to define columns in your model classes. It represents a column in a database table.
+
+   ```python
+   from sqlalchemy import Column, Integer, String
+
+   class User(db.Model):
+       id = Column(Integer, primary_key=True)
+       username = Column(String(80), unique=True)
+   ```
+
+4. **`Session` class:**
+   - Represents a "workspace" for your database connections. It allows you to interact with the database and perform operations.
+
+   ```python
+   from sqlalchemy.orm import Session
+
+   session = Session()
+   ```
+
+5. **`Query` class:**
+   - Used to query the database. Instances of this class are returned when querying the database using `db.session.query()`.
+
+   ```python
+   from sqlalchemy.orm import Query
+
+   query = db.session.query(User)
+   ```
+
+6. **`Base` object:**
+   - The declarative base class from which all your models should inherit. It includes metadata about your database tables.
+
+   ```python
+   from sqlalchemy.ext.declarative import declarative_base
+
+   Base = declarative_base()
+   ```
+
+7. **`ForeignKey` and `relationship`:**
+   - Used to establish relationships between models.
+
+   ```python
+   from sqlalchemy import ForeignKey
+   from sqlalchemy.orm import relationship
+
+   class Post(db.Model):
+       user_id = Column(Integer, ForeignKey('user.id'))
+       user = relationship('User', back_populates='posts')
+   ```
+
+8. **`db.session` object:**
+   - The session object that you use to interact with the database. It's an instance of the `Session` class.
+
+   ```python
+   user = User(username='john_doe')
+   db.session.add(user)
+   db.session.commit()
+   ```
+
+9. **`app.config['SQLALCHEMY_DATABASE_URI']`:**
+   - Configures the URI for the database. You set this configuration option in your Flask app to specify the database connection details.
+
+   ```python
+   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
+   ```
+
+10. **`db.create_all()` and `db.drop_all()`:**
+    - Methods used to create and drop all database tables defined in your models.
+
+    ```python
+    db.create_all()
+    db.drop_all()
+    ```
+
+These are some of the common elements you might use when working with `flask_sqlalchemy`. The library provides more features and options,
+ so you may want to refer to the official documentation for a comprehensive overview:
+  [Flask-SQLAlchemy Documentation](https://flask-sqlalchemy.palletsprojects.com/)
